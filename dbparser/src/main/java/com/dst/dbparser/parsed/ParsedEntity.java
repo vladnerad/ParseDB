@@ -1,17 +1,11 @@
 package com.dst.dbparser.parsed;
 
-import com.dst.dbparser.locarus.response.LocarusDataField;
 import com.dst.dbparser.locarus.response.Time;
 
-import java.time.Instant;
 import java.util.Map;
 
 public class ParsedEntity {
 
-//    public ParsedEntity(LocarusDataField ldf) {
-//    }
-
-    //    private Params params;
     private Time time;
     private Map<String, Double> params;
 
@@ -21,5 +15,9 @@ public class ParsedEntity {
 
     public void setTime(Time time) {
         this.time = time;
+    }
+
+    public Time getTime() {
+        return time;
     }
 }
