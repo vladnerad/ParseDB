@@ -117,8 +117,10 @@ public class DataParser {
 //        System.out.println(ldf.getAnalogIn().keySet());
         for (Map.Entry<String, Double> anal_n: ldf.getAnalogIn().entrySet()){
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P1.ordinal() + 1))){
+                resParams.put(CleanValues.joyY, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.joyY)));
+                resParams.put(CleanValues.joyX, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.joyX)));
                 resParams.put(CleanValues.tempHydOil, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.tempHydOil)));
-//                System.out.println(resParams.get(CleanValues.tempHydOil));
+                resParams.put(CleanValues.fuelLevel, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.fuelLevel)));
                 continue;
             }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P2.ordinal() + 1))){

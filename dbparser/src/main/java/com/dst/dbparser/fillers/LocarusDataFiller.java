@@ -74,7 +74,10 @@ public class LocarusDataFiller implements DataFiller{
         for (int i = 0; i < ANALOG_IN_NUMBER; i++) {
             //16 channels in Locarus
             if (i == LocarusChannels.P1.ordinal()) {
+                result[CleanValues.cleanDataArrayIndex.get(CleanValues.joyY)] = DataParser.getNumberFromByte(rawDataLine[i], handlers.get(CleanValues.joyY));
+                result[CleanValues.cleanDataArrayIndex.get(CleanValues.joyX)] = DataParser.getNumberFromByte(rawDataLine[i], handlers.get(CleanValues.joyX));
                 result[CleanValues.cleanDataArrayIndex.get(CleanValues.tempHydOil)] = DataParser.getNumberFromByte(rawDataLine[i], handlers.get(CleanValues.tempHydOil));
+                result[CleanValues.cleanDataArrayIndex.get(CleanValues.fuelLevel)] = DataParser.getNumberFromByte(rawDataLine[i], handlers.get(CleanValues.fuelLevel));
                 continue;
             }
             if (i == LocarusChannels.P2.ordinal()) {

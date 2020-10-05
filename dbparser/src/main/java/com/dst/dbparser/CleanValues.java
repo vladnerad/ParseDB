@@ -46,6 +46,10 @@ public class CleanValues {
     public static final String maxJoy = "ReqEngSpeedJoy";
     public static final String accelPedal = "AccelPedal";
 
+    public static final String joyY = "Joy F(+)/B(-)";
+    public static final String joyX = "Joy R(+)/L(-)";
+    public static final String fuelLevel = "Fuel";
+
     static {
 
         cleanDataArrayIndex.put(tempHydOil, 0);
@@ -61,6 +65,9 @@ public class CleanValues {
         cleanDataArrayIndex.put(engSpeedTsc1, 10);
         cleanDataArrayIndex.put(maxJoy, 11);
         cleanDataArrayIndex.put(accelPedal, 12);
+        cleanDataArrayIndex.put(joyY, 13);
+        cleanDataArrayIndex.put(joyX, 14);
+        cleanDataArrayIndex.put(fuelLevel, 15);
 
         cleanDataColumnsNamesAnalogIn.put(0, tempHydOil);
         cleanDataColumnsNamesAnalogIn.put(1, tempCoolant);
@@ -75,15 +82,10 @@ public class CleanValues {
         cleanDataColumnsNamesAnalogIn.put(10, engSpeedTsc1);
         cleanDataColumnsNamesAnalogIn.put(11, maxJoy);
         cleanDataColumnsNamesAnalogIn.put(12, accelPedal);
+        cleanDataColumnsNamesAnalogIn.put(13, joyY);
+        cleanDataColumnsNamesAnalogIn.put(14, joyX);
+        cleanDataColumnsNamesAnalogIn.put(15, fuelLevel);
 
-//        cleanDataColumnsNamesDigitalIn.put(0, "FanDriveAuto");
-//        cleanDataColumnsNamesDigitalIn.put(1, "SafetyBtn");
-//        cleanDataColumnsNamesDigitalIn.put(2, "TransportMode");
-//        cleanDataColumnsNamesDigitalIn.put(3, "HydOilLowLev");
-//        cleanDataColumnsNamesDigitalIn.put(4, "RipperMode");
-//        cleanDataColumnsNamesDigitalIn.put(5, "SwimMode");
-//        cleanDataColumnsNamesDigitalIn.put(6, "ParkingSwt");
-//        cleanDataColumnsNamesDigitalIn.put(7, "TowingSwt");
     }
 
     private int[][] analogInCleanValues;
