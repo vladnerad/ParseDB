@@ -111,7 +111,7 @@ public class DataParser {
 
     public static ParsedEntity parseLocarusDataField (LocarusDataField ldf){
         ParsedEntity result = new ParsedEntity();
-        result.setTime(ldf.getTime());
+        result.setTime(ldf.getTime().getValue());
         Map<String, Double> resParams = new HashMap<>();
 //        System.out.println(ldf.getAnalogIn());
 //        System.out.println(ldf.getAnalogIn().keySet());
@@ -135,6 +135,12 @@ public class DataParser {
                 resParams.put(CleanValues.tempGearbox, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.tempGearbox)));
                 resParams.put(CleanValues.tempTurbo, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.tempTurbo)));
                 resParams.put(CleanValues.tempEnv, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.tempEnv)));
+                continue;
+            }
+            if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P4.ordinal() + 1))){
+                resParams.put(CleanValues.actualVelocity, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.actualVelocity)) / 10);
+                resParams.put(CleanValues.velLimit, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.velLimit)) / 10);
+                resParams.put(CleanValues.inchPedal, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.inchPedal)));
                 continue;
             }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P6.ordinal() + 1))){

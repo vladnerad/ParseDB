@@ -28,6 +28,10 @@ public class HandlersStorage {
         handlers.put(CleanValues.joyY,               new Handler(0, 8, 1, -100));
         handlers.put(CleanValues.joyX,               new Handler(8, 8, 1, -100));
         handlers.put(CleanValues.fuelLevel,          new Handler(24, 8, 0.4, 0));
+
+        handlers.put(CleanValues.actualVelocity,     new Handler(0, 12, 1, -1250));
+        handlers.put(CleanValues.velLimit,           new Handler(12, 12, 1, -1250));
+        handlers.put(CleanValues.inchPedal,          new Handler(24, 7, 1, 0));
     }
 
     public HashMap<String, Handler> getHandlers() {
