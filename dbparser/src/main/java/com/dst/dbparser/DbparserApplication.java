@@ -2,7 +2,6 @@ package com.dst.dbparser;
 
 import com.dst.dbparser.locarus.DataParser;
 import com.dst.dbparser.locarus.response.LocarusDataField;
-import com.dst.dbparser.locarus.response.Time;
 import com.dst.dbparser.parsed.ParsedEntity;
 import com.mongodb.MongoNamespace;
 import com.mongodb.client.MongoClients;
@@ -46,7 +45,6 @@ public class DbparserApplication {
                     //Время последней записи не совпадает
                     if (!lastTimeRaw.equals(lastTimeParsed)) {
                         Query queryGreater = new Query().addCriteria(Criteria.where("time.value").gt(lastTimeParsed));
-                        System.out.println(queryGreater);
                         ArrayList<ParsedEntity> insd = (ArrayList<ParsedEntity>) mongoOpsParsed.insert(mongoOpsRaw.find(queryGreater, LocarusDataField.class, loaderCollection).stream().map(DataParser::parseLocarusDataField).collect(Collectors.toList()), loaderCollection);
                         System.out.println("Inserted " + insd.size() + " documents.");
                     }

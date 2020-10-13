@@ -14,23 +14,6 @@ public class DataParser {
         handlers = new HandlersStorage().getHandlers();
     }
 
-//    public static int[] getIntegerArray(Message message, int analogInNumber) {
-////        if (message.getDescription() == null) {
-//            Object[] pressL = message.getResult().getData().stream().map(data -> data.getAnalogIn().get(String.valueOf(analogInNumber))).toArray();
-//            int[] arr = new int[pressL.length];
-//            for (int i = 0; i < pressL.length; i++) {
-////                arr[i] = Integer.parseInt(String.valueOf(pressL[i]));
-//                if (pressL[i] != null) {
-//                    arr[i] = (int) ((double) pressL[i] * 1/*0.05*/);
-//                }
-//            }
-//            return arr;
-////        } else {
-////            System.out.println(message.getDescription());
-////            return null;
-////        }
-//    }
-
     public static int getNumberFromByte(int number, int startBit, int length) {
         boolean[] bits = new boolean[32];
         for (int i = 0; i < 32; i++) {
@@ -56,34 +39,6 @@ public class DataParser {
         }
         return (int) (result * handler.getMultiply()) + handler.getShift();
     }
-
-
-//    public static String[] getTimeArr(Message message) {
-////        if (message.getDescription() == null) {
-//            return message.getResult().getData().stream().map(LocarusDataField::getTime).map(Time::toString).map(s -> s.replaceAll("T", " ")).map(s -> s.replaceAll("\\.000Z", "")).toArray(String[]::new);
-////        } else {
-////            System.out.println(message.getDescription());
-////            return null;
-////        }
-//    }
-
-
-
-//    public static String errorsToString(Set<Integer> errors) {
-//        if (errors != null) {
-//            StringBuilder sb = new StringBuilder();
-//            for (Integer i : errors) {
-//                sb.append(i).append(":");
-//            }
-//            if (sb.length() > 0) {
-//                sb.setLength(sb.length() - 1);
-//            } else {
-//                sb.append("no errors");
-//            }
-//            return sb.toString();
-//        }
-//        return "set of errors is null";
-//    }
 
     private static boolean[] getDigitalInputs(String digIn){
         boolean[] result = new boolean[8];
@@ -148,6 +103,13 @@ public class DataParser {
                 resParams.put(CleanValues.pressB, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.pressB)));
                 resParams.put(CleanValues.pressAttach, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.pressAttach)));
                 resParams.put(CleanValues.pressFanDrive, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.pressFanDrive)));
+                continue;
+            }
+            if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P10.ordinal() + 1))){
+                resParams.put(CleanValues.bucketTilt, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.bucketTilt)));
+                resParams.put(CleanValues.jibTilt, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.jibTilt)));
+                resParams.put(CleanValues.chassisPitch, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.chassisPitch)));
+                resParams.put(CleanValues.chassisTilt, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.chassisTilt)));
 //                continue;
             }
         }

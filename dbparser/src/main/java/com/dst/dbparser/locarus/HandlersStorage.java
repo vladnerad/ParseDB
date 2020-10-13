@@ -32,6 +32,11 @@ public class HandlersStorage {
         handlers.put(CleanValues.actualVelocity,     new Handler(0, 12, 1, -1250));
         handlers.put(CleanValues.velLimit,           new Handler(12, 12, 1, -1250));
         handlers.put(CleanValues.inchPedal,          new Handler(24, 7, 1, 0));
+
+        handlers.put(CleanValues.bucketTilt,        new Handler(0, 8, 1, 0));
+        handlers.put(CleanValues.jibTilt,           new Handler(8, 8, 1, 0));
+        handlers.put(CleanValues.chassisPitch,      new Handler(16, 8, 1, 0));
+        handlers.put(CleanValues.chassisTilt,       new Handler(24, 8, 1, 0));
     }
 
     public HashMap<String, Handler> getHandlers() {

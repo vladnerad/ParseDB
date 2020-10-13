@@ -29,6 +29,11 @@ public class CleanValues {
     public static final String velLimit = "VelocityLimit";
     public static final String inchPedal = "InchPedal";
 
+    public static final String bucketTilt = "BucketTiltAngle";
+    public static final String jibTilt = "JibTiltAngle";
+    public static final String chassisPitch = "ChassisPitchAngle";
+    public static final String chassisTilt = "ChassisTiltAngle";
+
 //    static {
 //        cleanDataArrayIndex.put(tempHydOil, 0);
 //        cleanDataArrayIndex.put(tempCoolant, 1);
