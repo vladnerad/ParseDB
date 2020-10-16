@@ -37,6 +37,12 @@ public class HandlersStorage {
         handlers.put(CleanValues.jibTilt,           new Handler(8, 8, 1, 0));
         handlers.put(CleanValues.chassisPitch,      new Handler(16, 8, 1, 0));
         handlers.put(CleanValues.chassisTilt,       new Handler(24, 8, 1, 0));
+
+        handlers.put(CleanValues.velocityLimiter,   new Handler(29, 1, 1, 0));
+        handlers.put(CleanValues.swtGear1,          new Handler(29, 1, 1, 0));
+        handlers.put(CleanValues.swtGear2,          new Handler(28, 1, 1, 0));
+        handlers.put(CleanValues.sigGear1,          new Handler(5, 1, 1, 0));
+        handlers.put(CleanValues.sigGear2,          new Handler(4, 1, 1, 0));
     }
 
     public HashMap<String, Handler> getHandlers() {

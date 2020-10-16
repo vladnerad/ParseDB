@@ -34,6 +34,13 @@ public class CleanValues {
     public static final String chassisPitch = "ChassisPitchAngle";
     public static final String chassisTilt = "ChassisTiltAngle";
 
+    public static final String driveMode = "DriveMode";
+    public static final String velocityLimiter = "VelocityLimiter";
+    public static final String swtGear1 = "SwtGear1";
+    public static final String swtGear2 = "SwtGear2";
+    public static final String sigGear1 = "SigGear1";
+    public static final String sigGear2 = "SigGear2";
+
 //    static {
 //        cleanDataArrayIndex.put(tempHydOil, 0);
 //        cleanDataArrayIndex.put(tempCoolant, 1);

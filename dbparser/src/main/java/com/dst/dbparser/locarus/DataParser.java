@@ -5,8 +5,8 @@ import com.dst.dbparser.locarus.response.LocarusDataField;
 import com.dst.dbparser.parsed.ParsedEntity;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class DataParser {
     public static HashMap<String, Handler> handlers;
@@ -40,34 +40,35 @@ public class DataParser {
         return (int) (result * handler.getMultiply()) + handler.getShift();
     }
 
-    private static boolean[] getDigitalInputs(String digIn){
-        boolean[] result = new boolean[8];
-        long digInLong = Long.parseLong(digIn);
-        if(digInLong > 0){
-            System.out.println("error getDigitalInputs");
-            return null;
-        }
-        else {
-            int n = (int) (4294967295L + digInLong + 1) >> 7;
-            for (int i = 7; i >= 0; i--) {
-                result[i] = (n & (1 << i)) != 0;
-            }
-        }
-        return result;
-    }
+//    private static boolean[] getDigitalInputs(String digIn){
+//        boolean[] result = new boolean[8];
+//        long digInLong = Long.parseLong(digIn);
+//        if(digInLong > 0){
+//            System.out.println("error getDigitalInputs");
+//            return null;
+//        }
+//        else {
+//            int n = (int) (4294967295L + digInLong + 1) >> 7;
+//            for (int i = 7; i >= 0; i--) {
+//                result[i] = (n & (1 << i)) != 0;
+//            }
+//        }
+//        return result;
+//    }
 
-    public static boolean[][] getDigitalInData(List<LocarusDataField> data){
-        boolean[][] result = new boolean[data.size()][8];
-            for (int i = 0; i < result.length; i++) {
-                result[i] = getDigitalInputs(data.get(i).getDigitalIn());
-            }
-            return result;
-    }
+//    public static boolean[][] getDigitalInData(List<LocarusDataField> data){
+//        boolean[][] result = new boolean[data.size()][8];
+//            for (int i = 0; i < result.length; i++) {
+//                result[i] = getDigitalInputs(data.get(i).getDigitalIn());
+//            }
+//            return result;
+//    }
 
     public static ParsedEntity parseLocarusDataField (LocarusDataField ldf){
         ParsedEntity result = new ParsedEntity();
         result.setTime(ldf.getTime().getValue());
-        Map<String, Double> resParams = new HashMap<>();
+        TreeMap<String, Double> resParams = new TreeMap<>();
+        TreeMap<String, Boolean> resFlags = new TreeMap<>();
 //        System.out.println(ldf.getAnalogIn());
 //        System.out.println(ldf.getAnalogIn().keySet());
         for (Map.Entry<String, Double> anal_n: ldf.getAnalogIn().entrySet()){
@@ -98,6 +99,11 @@ public class DataParser {
                 resParams.put(CleanValues.inchPedal, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.inchPedal)));
                 continue;
             }
+            if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P5.ordinal() + 1))){
+                resParams.put(CleanValues.driveMode, new DriveModeHandler(anal_n.getValue()).getMode());
+                resFlags.put(CleanValues.velocityLimiter, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.velocityLimiter)));
+                continue;
+            }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P6.ordinal() + 1))){
                 resParams.put(CleanValues.pressA, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.pressA)));
                 resParams.put(CleanValues.pressB, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.pressB)));
@@ -105,15 +111,26 @@ public class DataParser {
                 resParams.put(CleanValues.pressFanDrive, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.pressFanDrive)));
                 continue;
             }
+            if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P7.ordinal() + 1))){
+                resFlags.put(CleanValues.swtGear1, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtGear1)));
+                resFlags.put(CleanValues.swtGear2, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtGear2)));
+                continue;
+            }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P10.ordinal() + 1))){
                 resParams.put(CleanValues.bucketTilt, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.bucketTilt)));
                 resParams.put(CleanValues.jibTilt, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.jibTilt)));
                 resParams.put(CleanValues.chassisPitch, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.chassisPitch)));
                 resParams.put(CleanValues.chassisTilt, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.chassisTilt)));
+                continue;
+            }
+            if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P11.ordinal() + 1))){
+                resFlags.put(CleanValues.sigGear1, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigGear1)));
+                resFlags.put(CleanValues.sigGear2, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigGear2)));
 //                continue;
             }
         }
         result.setParams(resParams);
+        result.setFlags(resFlags);
         return result;
     }
 }

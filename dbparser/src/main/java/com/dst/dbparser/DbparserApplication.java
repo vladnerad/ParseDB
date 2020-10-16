@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class DbparserApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DbparserApplication.class, args);
+//        SpringApplication.run(DbparserApplication.class, args);
 
         MongoOperations mongoOpsRaw = new MongoTemplate(new SimpleMongoClientDatabaseFactory(MongoClients.create("mongodb://root:root@localhost:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false"), "wheel_loaders"));
         MongoOperations mongoOpsParsed = new MongoTemplate(new SimpleMongoClientDatabaseFactory(MongoClients.create("mongodb://root:root@localhost:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false"), "wl_parsed"));
