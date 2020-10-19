@@ -43,6 +43,26 @@ public class HandlersStorage {
         handlers.put(CleanValues.swtGear2,          new Handler(28, 1, 1, 0));
         handlers.put(CleanValues.sigGear1,          new Handler(5, 1, 1, 0));
         handlers.put(CleanValues.sigGear2,          new Handler(4, 1, 1, 0));
+
+        handlers.put(CleanValues.errQuan,           new Handler(0, 6, 1, 0));
+        handlers.put(CleanValues.isHydSysBlock,     new Handler(15, 1, 1, 0));
+        handlers.put(CleanValues.isSwimMode,        new Handler(14, 1, 1, 0));
+        handlers.put(CleanValues.isStartPossible,   new Handler(13, 1, 1, 0));
+        handlers.put(CleanValues.isControlForb,     new Handler(12, 1, 1, 0));
+        handlers.put(CleanValues.isContForbSpeed,   new Handler(11, 1, 1, 0));
+        handlers.put(CleanValues.isContForbOpAbsent, new Handler(10, 1, 1, 0));
+        handlers.put(CleanValues.isContForbUnintentionall, new Handler(9, 1, 1, 0));
+        handlers.put(CleanValues.isMoveBackward,    new Handler(8, 1, 1, 0));
+        handlers.put(CleanValues.isEmerDir,         new Handler(22, 1, 1, 0));
+        handlers.put(CleanValues.isOperMode,        new Handler(21, 1, 1, 0));
+        handlers.put(CleanValues.isEcoMode,         new Handler(20, 1, 1, 0));
+        handlers.put(CleanValues.swtParkingSens,    new Handler(23, 1, 1, 0));
+        handlers.put(CleanValues.swtOperAbsentSens, new Handler(31, 1, 1, 0));
+        handlers.put(CleanValues.swtParkingButton,  new Handler(30, 1, 1, 0));
+        handlers.put(CleanValues.swtAirFilter,      new Handler(27, 1, 1, 0));
+        handlers.put(CleanValues.swtHydFiltCloggVac, new Handler(26, 1, 1, 0));
+        handlers.put(CleanValues.swtHydFiltCloggPress, new Handler(25, 1, 1, 0));
+        handlers.put(CleanValues.swtHydFiltCloggSuction, new Handler(24, 1, 1, 0));
     }
 
     public HashMap<String, Handler> getHandlers() {

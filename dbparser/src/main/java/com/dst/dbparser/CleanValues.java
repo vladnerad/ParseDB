@@ -61,25 +61,4 @@ public class CleanValues {
     public static final String swtHydFiltCloggPress = "PressHydFiltClogg";
     public static final String swtHydFiltCloggSuction = "SuctionHydFiltClogg";
 
-//    static {
-//        cleanDataArrayIndex.put(tempHydOil, 0);
-//        cleanDataArrayIndex.put(tempCoolant, 1);
-//        cleanDataArrayIndex.put(tempGearbox, 2);
-//        cleanDataArrayIndex.put(tempTurbo, 3);
-//        cleanDataArrayIndex.put(tempEnv, 4);
-//        cleanDataArrayIndex.put(pressA, 5);
-//        cleanDataArrayIndex.put(pressB, 6);
-//        cleanDataArrayIndex.put(pressAttach, 7);
-//        cleanDataArrayIndex.put(pressFanDrive, 8);
-//        cleanDataArrayIndex.put(engineSpeed, 9);
-//        cleanDataArrayIndex.put(engSpeedTsc1, 10);
-//        cleanDataArrayIndex.put(maxJoy, 11);
-//        cleanDataArrayIndex.put(accelPedal, 12);
-//        cleanDataArrayIndex.put(joyY, 13);
-//        cleanDataArrayIndex.put(joyX, 14);
-//        cleanDataArrayIndex.put(fuelLevel, 15);
-//        cleanDataArrayIndex.put(actualVelocity, 16);
-//        cleanDataArrayIndex.put(velLimit, 17);
-//        cleanDataArrayIndex.put(inchPedal, 18);
-//    }
 }

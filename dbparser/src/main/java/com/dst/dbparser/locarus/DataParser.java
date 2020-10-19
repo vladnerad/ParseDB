@@ -112,8 +112,27 @@ public class DataParser {
                 continue;
             }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P7.ordinal() + 1))){
+                resParams.put(CleanValues.errQuan, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.errQuan)));
                 resFlags.put(CleanValues.swtGear1, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtGear1)));
                 resFlags.put(CleanValues.swtGear2, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtGear2)));
+                resFlags.put(CleanValues.isHydSysBlock, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.isHydSysBlock)));
+                resFlags.put(CleanValues.isSwimMode, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.isSwimMode)));
+                resFlags.put(CleanValues.isStartPossible, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.isStartPossible)));
+                resFlags.put(CleanValues.isControlForb, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.isControlForb)));
+                resFlags.put(CleanValues.isContForbSpeed, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.isContForbSpeed)));
+                resFlags.put(CleanValues.isContForbOpAbsent, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.isContForbOpAbsent)));
+                resFlags.put(CleanValues.isContForbUnintentionall, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.isContForbUnintentionall)));
+                resFlags.put(CleanValues.isMoveBackward, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.isMoveBackward)));
+                resFlags.put(CleanValues.isEmerDir, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.isEmerDir)));
+                resFlags.put(CleanValues.isOperMode, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.isOperMode)));
+                resFlags.put(CleanValues.isEcoMode, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.isEcoMode)));
+                resFlags.put(CleanValues.swtParkingSens, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtParkingSens)));
+                resFlags.put(CleanValues.swtOperAbsentSens, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtOperAbsentSens)));
+                resFlags.put(CleanValues.swtParkingButton, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtParkingButton)));
+                resFlags.put(CleanValues.swtAirFilter, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtAirFilter)));
+                resFlags.put(CleanValues.swtHydFiltCloggVac, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtHydFiltCloggVac)));
+                resFlags.put(CleanValues.swtHydFiltCloggPress, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtHydFiltCloggPress)));
+                resFlags.put(CleanValues.swtHydFiltCloggSuction, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtHydFiltCloggSuction)));
                 continue;
             }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P10.ordinal() + 1))){
