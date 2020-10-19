@@ -41,6 +41,26 @@ public class CleanValues {
     public static final String sigGear1 = "SigGear1";
     public static final String sigGear2 = "SigGear2";
 
+    public static final String errQuan = "ErrorsQuantity";
+    public static final String isHydSysBlock = "HydSysBlocked";
+    public static final String isSwimMode = "SwimMode";
+    public static final String isStartPossible = "StartPossible";
+    public static final String isControlForb = "ControlForbid";
+    public static final String isContForbSpeed = "ContForbidBySpeed";
+    public static final String isContForbOpAbsent = "ContForbidOpAbsent";
+    public static final String isContForbUnintentionall = "UnintentionallControlForbid";
+    public static final String isMoveBackward = "MoveBackwardSig";
+    public static final String isEmerDir = "EmergencyDirChoice";
+    public static final String isOperMode = "CustomOperatorMode";
+    public static final String isEcoMode = "EcoMode";
+    public static final String swtParkingSens = "ParkingSwtSens";
+    public static final String swtOperAbsentSens = "OperatorAbsent";
+    public static final String swtParkingButton = "ParkingButton";
+    public static final String swtAirFilter = "AirFilterClogged";
+    public static final String swtHydFiltCloggVac = "VacHydFiltClogg";
+    public static final String swtHydFiltCloggPress = "PressHydFiltClogg";
+    public static final String swtHydFiltCloggSuction = "SuctionHydFiltClogg";
+
 //    static {
 //        cleanDataArrayIndex.put(tempHydOil, 0);
 //        cleanDataArrayIndex.put(tempCoolant, 1);
