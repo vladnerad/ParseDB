@@ -61,4 +61,40 @@ public class CleanValues {
     public static final String swtHydFiltCloggPress = "PressHydFiltClogg";
     public static final String swtHydFiltCloggSuction = "SuctionHydFiltClogg";
 
+    public static final String hstErr1 = "HstErr1";
+    public static final String hstErr2 = "HstErr2";
+    public static final String hstErr3 = "HstErr3";
+    public static final String hstErr4 = "HstErr4";
+    public static final String hstErr5 = "HstErr5";
+    public static final String hstErr6 = "HstErr6";
+
+    public static final String spn1p1 = "spn1p1";
+    public static final String spn1p2 = "spn1p2";
+    public static final String spn1p3 = "spn1p3";
+    public static final String fmi1 = "fmi1";
+
+    public static final String spn2p1 = "spn2p1";
+    public static final String spn2p2 = "spn2p2";
+    public static final String spn2p3 = "spn2p3";
+    public static final String fmi2 = "fmi2";
+
+    public static final String spn3p1 = "spn3p1";
+    public static final String spn3p2 = "spn3p2";
+    public static final String spn3p3 = "spn3p3";
+    public static final String fmi3 = "fmi3";
+
+    public static final String spn4p1 = "spn4p1";
+    public static final String spn4p2 = "spn4p2";
+    public static final String spn4p3 = "spn4p3";
+    public static final String fmi4 = "fmi4";
+
+    public static final String spn5p1 = "spn5p1";
+    public static final String spn5p2 = "spn5p2";
+    public static final String spn5p3 = "spn5p3";
+    public static final String fmi5 = "fmi5";
+
+    public static final String spn6p1 = "spn6p1";
+    public static final String spn6p2 = "spn6p2";
+    public static final String spn6p3 = "spn6p3";
+    public static final String fmi6 = "fmi6";
 }

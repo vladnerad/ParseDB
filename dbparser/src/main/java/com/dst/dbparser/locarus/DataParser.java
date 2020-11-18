@@ -4,6 +4,7 @@ import com.dst.dbparser.CleanValues;
 import com.dst.dbparser.locarus.response.LocarusDataField;
 import com.dst.dbparser.parsed.ParsedEntity;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -40,35 +41,18 @@ public class DataParser {
         return (int) (result * handler.getMultiply()) + handler.getShift();
     }
 
-//    private static boolean[] getDigitalInputs(String digIn){
-//        boolean[] result = new boolean[8];
-//        long digInLong = Long.parseLong(digIn);
-//        if(digInLong > 0){
-//            System.out.println("error getDigitalInputs");
-//            return null;
-//        }
-//        else {
-//            int n = (int) (4294967295L + digInLong + 1) >> 7;
-//            for (int i = 7; i >= 0; i--) {
-//                result[i] = (n & (1 << i)) != 0;
-//            }
-//        }
-//        return result;
-//    }
-
-//    public static boolean[][] getDigitalInData(List<LocarusDataField> data){
-//        boolean[][] result = new boolean[data.size()][8];
-//            for (int i = 0; i < result.length; i++) {
-//                result[i] = getDigitalInputs(data.get(i).getDigitalIn());
-//            }
-//            return result;
-//    }
-
     public static ParsedEntity parseLocarusDataField (LocarusDataField ldf){
         ParsedEntity result = new ParsedEntity();
         result.setTime(ldf.getTime().getValue());
         TreeMap<String, Double> resParams = new TreeMap<>();
         TreeMap<String, Boolean> resFlags = new TreeMap<>();
+        ErrorSpnHandler hstErrHand1 = new ErrorSpnHandler();
+        ErrorSpnHandler hstErrHand2 = new ErrorSpnHandler();
+        ErrorSpnHandler hstErrHand3 = new ErrorSpnHandler();
+        ErrorSpnHandler hstErrHand4 = new ErrorSpnHandler();
+        ErrorSpnHandler hstErrHand5 = new ErrorSpnHandler();
+        ErrorSpnHandler hstErrHand6 = new ErrorSpnHandler();
+
 //        System.out.println(ldf.getAnalogIn());
 //        System.out.println(ldf.getAnalogIn().keySet());
         for (Map.Entry<String, Double> anal_n: ldf.getAnalogIn().entrySet()){
@@ -145,11 +129,55 @@ public class DataParser {
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P11.ordinal() + 1))){
                 resFlags.put(CleanValues.sigGear1, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigGear1)));
                 resFlags.put(CleanValues.sigGear2, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigGear2)));
+                hstErrHand1.setSpn1(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn1p1)));
+                hstErrHand1.setSpn2(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn1p2)));
+                continue;
+            }
+            if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P12.ordinal() + 1))){
+                hstErrHand1.setSpn3(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn1p3)));
+                hstErrHand1.setFmi(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.fmi1)));
+                hstErrHand2.setSpn1(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn2p1)));
+                hstErrHand2.setSpn2(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn2p2)));
+                hstErrHand2.setSpn3(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn2p3)));
+                hstErrHand2.setFmi(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.fmi2)));
+                continue;
+            }
+            if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P13.ordinal() + 1))){
+                hstErrHand3.setSpn1(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn3p1)));
+                hstErrHand3.setSpn2(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn3p2)));
+                hstErrHand3.setSpn3(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn3p3)));
+                hstErrHand3.setFmi(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.fmi3)));
+                hstErrHand4.setSpn1(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn4p1)));
+                continue;
+            }
+            if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P14.ordinal() + 1))){
+                hstErrHand4.setSpn2(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn4p2)));
+                hstErrHand4.setSpn3(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn4p3)));
+                hstErrHand4.setFmi(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.fmi4)));
+                hstErrHand5.setSpn1(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn5p1)));
+                hstErrHand5.setSpn2(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn5p2)));
+                continue;
+            }
+            if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P15.ordinal() + 1))){
+                hstErrHand5.setSpn3(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn5p3)));
+                hstErrHand5.setFmi(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.fmi5)));
+                hstErrHand6.setSpn1(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn6p1)));
+                hstErrHand6.setSpn2(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn6p2)));
+                hstErrHand6.setSpn3(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn6p3)));
+                hstErrHand6.setFmi(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.fmi6)));
 //                continue;
             }
         }
         result.setParams(resParams);
         result.setFlags(resFlags);
+        ArrayList<Double> hstErrors = new ArrayList<>();
+        if (hstErrHand1.getErrCode() > 0) hstErrors.add(hstErrHand1.getErrCode());
+        if (hstErrHand2.getErrCode() > 0) hstErrors.add(hstErrHand2.getErrCode());
+        if (hstErrHand3.getErrCode() > 0) hstErrors.add(hstErrHand3.getErrCode());
+        if (hstErrHand4.getErrCode() > 0) hstErrors.add(hstErrHand4.getErrCode());
+        if (hstErrHand5.getErrCode() > 0) hstErrors.add(hstErrHand5.getErrCode());
+        if (hstErrHand6.getErrCode() > 0) hstErrors.add(hstErrHand6.getErrCode());
+        if (!hstErrors.isEmpty()) result.setHstErrors(hstErrors);
         return result;
     }
 }

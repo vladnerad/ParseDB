@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.util.CloseableIterator;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -31,7 +32,11 @@ public class DbparserApplication {
                 //Такой коллекции еще нет
                 if (!mongoOpsParsed.collectionExists(loaderCollection)) {
                     System.out.println("Creating new collection...");
-                    mongoOpsParsed.insertAll((mongoOpsRaw.findAll(LocarusDataField.class, loaderCollection).stream().map(DataParser::parseLocarusDataField)).collect(Collectors.toList()));
+                    CloseableIterator<LocarusDataField> closeableIterator = mongoOpsRaw.stream(new Query(), LocarusDataField.class, loaderCollection);
+                    while (closeableIterator.hasNext()){
+                        mongoOpsParsed.insert(DataParser.parseLocarusDataField(closeableIterator.next()));
+                    }
+//                    mongoOpsParsed.insertAll((mongoOpsRaw.findAll(LocarusDataField.class, loaderCollection).stream().map(DataParser::parseLocarusDataField)).collect(Collectors.toList()));
                     MongoNamespace namespace = new MongoNamespace("wl_parsed", loaderCollection);
                     mongoOpsParsed.getCollection(ParsedEntity.class.getSimpleName().replace(ParsedEntity.class.getSimpleName().charAt(0), ParsedEntity.class.getSimpleName().toLowerCase().charAt(0))).renameCollection(namespace);
                     System.out.println("Created collection: " + loaderCollection);

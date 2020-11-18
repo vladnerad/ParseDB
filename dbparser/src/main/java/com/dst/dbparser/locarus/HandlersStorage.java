@@ -63,6 +63,37 @@ public class HandlersStorage {
         handlers.put(CleanValues.swtHydFiltCloggVac, new Handler(26, 1, 1, 0));
         handlers.put(CleanValues.swtHydFiltCloggPress, new Handler(25, 1, 1, 0));
         handlers.put(CleanValues.swtHydFiltCloggSuction, new Handler(24, 1, 1, 0));
+        //Ощибки ГСТ spn & fmi
+        handlers.put(CleanValues.spn1p1,            new Handler(16, 8, 1, 0));
+        handlers.put(CleanValues.spn1p2,            new Handler(24, 8, 1, 0));
+        handlers.put(CleanValues.spn1p3,            new Handler(5, 3, 1, 0));
+        handlers.put(CleanValues.fmi1,              new Handler(0, 5, 1, 0));
+
+        handlers.put(CleanValues.spn2p1,            new Handler(8, 8, 1, 0));
+        handlers.put(CleanValues.spn2p2,            new Handler(16, 8, 1, 0));
+        handlers.put(CleanValues.spn2p3,            new Handler(29, 3, 1, 0));
+        handlers.put(CleanValues.fmi2,              new Handler(24, 5, 1, 0));
+
+        handlers.put(CleanValues.spn3p1,            new Handler(0, 8, 1, 0));
+        handlers.put(CleanValues.spn3p2,            new Handler(8, 8, 1, 0));
+        handlers.put(CleanValues.spn3p3,            new Handler(21, 3, 1, 0));
+        handlers.put(CleanValues.fmi3,              new Handler(16, 5, 1, 0));
+
+        handlers.put(CleanValues.spn4p1,            new Handler(24, 8, 1, 0));
+        handlers.put(CleanValues.spn4p2,            new Handler(0, 8, 1, 0));
+        handlers.put(CleanValues.spn4p3,            new Handler(13, 3, 1, 0));
+        handlers.put(CleanValues.fmi4,              new Handler(8, 5, 1, 0));
+
+        handlers.put(CleanValues.spn5p1,            new Handler(16, 8, 1, 0));
+        handlers.put(CleanValues.spn5p2,            new Handler(24, 8, 1, 0));
+        handlers.put(CleanValues.spn5p3,            new Handler(5, 3, 1, 0));
+        handlers.put(CleanValues.fmi5,              new Handler(0, 5, 1, 0));
+
+        handlers.put(CleanValues.spn6p1,            new Handler(8, 8, 1, 0));
+        handlers.put(CleanValues.spn6p2,            new Handler(16, 8, 1, 0));
+        handlers.put(CleanValues.spn6p3,            new Handler(29, 3, 1, 0));
+        handlers.put(CleanValues.fmi6,              new Handler(24, 5, 1, 0));
+
     }
 
     public HashMap<String, Handler> getHandlers() {
