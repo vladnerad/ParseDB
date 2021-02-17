@@ -50,8 +50,12 @@ public class DbparserApplication {
                     //Время последней записи не совпадает
                     if (!lastTimeRaw.equals(lastTimeParsed)) {
                         Query queryGreater = new Query().addCriteria(Criteria.where("time.value").gt(lastTimeParsed));
-                        ArrayList<ParsedEntity> insd = (ArrayList<ParsedEntity>) mongoOpsParsed.insert(mongoOpsRaw.find(queryGreater, LocarusDataField.class, loaderCollection).stream().map(DataParser::parseLocarusDataField).collect(Collectors.toList()), loaderCollection);
-                        System.out.println("Inserted " + insd.size() + " documents.");
+//                        ArrayList<ParsedEntity> insd = (ArrayList<ParsedEntity>) mongoOpsParsed.insert(mongoOpsRaw.find(queryGreater, LocarusDataField.class, loaderCollection).stream().map(DataParser::parseLocarusDataField).collect(Collectors.toList()), loaderCollection);
+//                        System.out.println("Inserted " + insd.size() + " documents.");
+//                        mongoOpsParsed.insert(mongoOpsRaw.find(queryGreater, LocarusDataField.class, loaderCollection).stream().map(DataParser::parseLocarusDataField), loaderCollection);
+                        mongoOpsRaw.find(queryGreater, LocarusDataField.class, loaderCollection).stream().map(DataParser::parseLocarusDataField).forEach(o -> mongoOpsParsed.insert(o, loaderCollection));
+                        System.out.println("OK");
+
                     }
                     else {
                         System.out.println("Synchronized at: " + lastTimeParsed);

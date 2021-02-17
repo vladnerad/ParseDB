@@ -119,6 +119,11 @@ public class DataParser {
                 resFlags.put(CleanValues.swtHydFiltCloggSuction, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtHydFiltCloggSuction)));
                 continue;
             }
+            if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P8.ordinal() + 1))){
+                resParams.put(CleanValues.permMotSpeed, new MotorSpeedHandler(false, anal_n.getValue()).getSpeed());
+                resParams.put(CleanValues.tempMotSpeed, new MotorSpeedHandler(true, anal_n.getValue()).getSpeed());
+                continue;
+            }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P10.ordinal() + 1))){
                 resParams.put(CleanValues.bucketTilt, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.bucketTilt)));
                 resParams.put(CleanValues.jibTilt, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.jibTilt)));

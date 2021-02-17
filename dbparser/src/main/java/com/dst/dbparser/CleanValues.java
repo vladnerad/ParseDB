@@ -97,4 +97,7 @@ public class CleanValues {
     public static final String spn6p2 = "spn6p2";
     public static final String spn6p3 = "spn6p3";
     public static final String fmi6 = "fmi6";
+
+    public static final String permMotSpeed = "PermMotRPM";
+    public static final String tempMotSpeed = "TempMotRPM";
 }
