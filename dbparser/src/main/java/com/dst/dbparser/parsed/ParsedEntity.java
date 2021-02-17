@@ -1,5 +1,6 @@
 package com.dst.dbparser.parsed;
 
+import com.dst.dbparser.locarus.response.Coordinates;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ public class ParsedEntity {
     private TreeMap<String, Double> params;
     private TreeMap<String, Boolean> flags;
     private ArrayList<Double> hstErrors;
+    private Coordinates coordinates;
 
     public void setParams(TreeMap<String, Double> params) {
         this.params = params;
@@ -35,5 +37,9 @@ public class ParsedEntity {
 
     public void setHstErrors(ArrayList<Double> hstErrors) {
         this.hstErrors = hstErrors;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
     }
 }

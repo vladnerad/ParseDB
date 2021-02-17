@@ -43,7 +43,7 @@ public class DataParser {
 
     public static ParsedEntity parseLocarusDataField (LocarusDataField ldf){
         ParsedEntity result = new ParsedEntity();
-        result.setTime(ldf.getTime().getValue());
+        result.setTime(ldf.getTime());
         TreeMap<String, Double> resParams = new TreeMap<>();
         TreeMap<String, Boolean> resFlags = new TreeMap<>();
         ErrorSpnHandler hstErrHand1 = new ErrorSpnHandler();
@@ -183,6 +183,7 @@ public class DataParser {
         if (hstErrHand5.getErrCode() > 0) hstErrors.add(hstErrHand5.getErrCode());
         if (hstErrHand6.getErrCode() > 0) hstErrors.add(hstErrHand6.getErrCode());
         if (!hstErrors.isEmpty()) result.setHstErrors(hstErrors);
+        result.setCoordinates(ldf.getCoords());
         return result;
     }
 }

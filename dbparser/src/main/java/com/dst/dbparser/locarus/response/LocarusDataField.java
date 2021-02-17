@@ -1,6 +1,7 @@
 package com.dst.dbparser.locarus.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
 
@@ -8,10 +9,19 @@ import java.util.Map;
         "message", "extra", "nativeFlags", "generalListIn", "Coords", "Filter", "Flags", "Satellites",
         "framePacket"})
 public class LocarusDataField {
-    private Time time;
+
+    @JsonProperty("time")
+    private String time;
+    @JsonProperty("digitalIn")
+    private String digitalIn;
+    @JsonProperty("analogIn")
+    private Map<String, Double> analogIn;
+    @JsonProperty("Coords")
+    private Coordinates coords;
+
 //    private String referenceID;
 //    private String navigationID;
-    private String objectID;
+//    private String objectID;
 //    private String objectType;
 //    private String dist;
 //    private String mileage;
@@ -19,49 +29,21 @@ public class LocarusDataField {
 //    private String message;
 //    private List<String> extra;
 //    private String nativeFlags;
-    private String digitalIn;
-    private Map<String, Double> analogIn;
 //    private List<String> generalListIn;
-//    private List<String> Coords;
 //    private List<String> Filter;
 //    private List<String> Flags;
 //    private List<String> Satellites;
 //    private boolean framePacket;
 
-    public Time getTime() {
+    public String getTime() {
         return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
     }
 
     public Map<String, Double> getAnalogIn() {
         return analogIn;
     }
 
-    public void setAnalogIn(Map<String, Double> analogIn) {
-        this.analogIn = analogIn;
+    public Coordinates getCoords() {
+        return coords;
     }
-
-    public String getDigitalIn() {
-        return digitalIn;
-    }
-
-    public void setDigitalIn(String digitalIn) {
-        this.digitalIn = digitalIn;
-    }
-
-    public String getObjectID() {
-        return objectID;
-    }
-
-    //    @Override
-//    public String toString() {
-//        return "LocarusDataField{" +
-//                "time=" + time +
-//                ", digitalIn='" + digitalIn + '\'' +
-//                ", analogIn=" + analogIn +
-//                '}';
-//    }
 }
