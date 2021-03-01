@@ -52,6 +52,8 @@ public class DataParser {
         ErrorSpnHandler hstErrHand4 = new ErrorSpnHandler();
         ErrorSpnHandler hstErrHand5 = new ErrorSpnHandler();
         ErrorSpnHandler hstErrHand6 = new ErrorSpnHandler();
+        double hours = 0;
+        double minutes = 0;
 
 //        System.out.println(ldf.getAnalogIn());
 //        System.out.println(ldf.getAnalogIn().keySet());
@@ -120,8 +122,15 @@ public class DataParser {
                 continue;
             }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P8.ordinal() + 1))){
-                resParams.put(CleanValues.permMotSpeed, new MotorSpeedHandler(false, anal_n.getValue()).getSpeed());
-                resParams.put(CleanValues.tempMotSpeed, new MotorSpeedHandler(true, anal_n.getValue()).getSpeed());
+//                resParams.put(CleanValues.permMotSpeed, new MotorSpeedHandler(false, anal_n.getValue()).getSpeed());
+//                resParams.put(CleanValues.tempMotSpeed, new MotorSpeedHandler(true, anal_n.getValue()).getSpeed());
+                resParams.put(CleanValues.permMotSpeed, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.permMotSpeed)));
+                resParams.put(CleanValues.tempMotSpeed, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.tempMotSpeed)));
+                minutes = DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.motoMinutes));
+                continue;
+            }
+            if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P9.ordinal() + 1))){
+                hours = DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.motoHours));
                 continue;
             }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P10.ordinal() + 1))){
@@ -173,6 +182,9 @@ public class DataParser {
 //                continue;
             }
         }
+        // сложение моточасов
+        resParams.put(CleanValues.workHours, hours + minutes / 10);
+
         result.setParams(resParams);
         result.setFlags(resFlags);
         ArrayList<Double> hstErrors = new ArrayList<>();

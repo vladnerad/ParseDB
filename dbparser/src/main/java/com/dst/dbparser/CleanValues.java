@@ -100,4 +100,9 @@ public class CleanValues {
 
     public static final String permMotSpeed = "PermMotRPM";
     public static final String tempMotSpeed = "TempMotRPM";
+    // для обработчиков
+    public static final String motoHours = "hours";
+    public static final String motoMinutes = "minutes";
+    // после склейки
+    public static final String workHours = "WorkHours";
 }

@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
+import org.springframework.data.mongodb.core.index.Index;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.util.CloseableIterator;
@@ -34,24 +35,25 @@ public class DbparserApplication {
                 //Такой коллекции еще нет
                 if (!mongoOpsParsed.collectionExists(loaderCollection)) {
                     System.out.println("Creating new collection...");
+                    mongoOpsParsed.indexOps(loaderCollection).ensureIndex(new Index().on("time", Sort.Direction.ASC).unique());
                     CloseableIterator<LocarusDataField> closeableIterator = mongoOpsRaw.stream(new Query(), LocarusDataField.class, loaderCollection);
                     while (closeableIterator.hasNext()){
-                        mongoOpsParsed.insert(DataParser.parseLocarusDataField(closeableIterator.next()));
+                        mongoOpsParsed.insert(DataParser.parseLocarusDataField(closeableIterator.next()), loaderCollection);
                     }
 //                    mongoOpsParsed.insertAll((mongoOpsRaw.findAll(LocarusDataField.class, loaderCollection).stream().map(DataParser::parseLocarusDataField)).collect(Collectors.toList()));
-                    MongoNamespace namespace = new MongoNamespace("wl_parsed", loaderCollection);
-                    mongoOpsParsed.getCollection(ParsedEntity.class.getSimpleName().replace(ParsedEntity.class.getSimpleName().charAt(0), ParsedEntity.class.getSimpleName().toLowerCase().charAt(0))).renameCollection(namespace);
+//                    MongoNamespace namespace = new MongoNamespace("wl_parsed", loaderCollection);
+//                    mongoOpsParsed.getCollection(ParsedEntity.class.getSimpleName().replace(ParsedEntity.class.getSimpleName().charAt(0), ParsedEntity.class.getSimpleName().toLowerCase().charAt(0))).renameCollection(namespace);
                     System.out.println("Created collection: " + loaderCollection);
                 }
                 //Коллекция есть
                 else {
                     System.out.println("Collection: " + loaderCollection);
                     Query query = new Query().with(Sort.by(Sort.Direction.DESC, "time")).limit(1);
-                    String lastTimeRaw = mongoOpsRaw.find(query, LocarusDataField.class, loaderCollection).get(0).getTime().getValue();
+                    String lastTimeRaw = mongoOpsRaw.find(query, LocarusDataField.class, loaderCollection).get(0).getTime();
                     String lastTimeParsed = mongoOpsParsed.find(query, ParsedEntity.class, loaderCollection).get(0).getTime();
                     //Время последней записи не совпадает
                     if (!lastTimeRaw.equals(lastTimeParsed)) {
-                        Query queryGreater = new Query().addCriteria(Criteria.where("time.value").gt(lastTimeParsed));
+                        Query queryGreater = new Query().addCriteria(Criteria.where("time").gt(lastTimeParsed));
 //                        ArrayList<ParsedEntity> insd = (ArrayList<ParsedEntity>) mongoOpsParsed.insert(mongoOpsRaw.find(queryGreater, LocarusDataField.class, loaderCollection).stream().map(DataParser::parseLocarusDataField).collect(Collectors.toList()), loaderCollection);
 //                        System.out.println("Inserted " + insd.size() + " documents.");
 //                        mongoOpsParsed.insert(mongoOpsRaw.find(queryGreater, LocarusDataField.class, loaderCollection).stream().map(DataParser::parseLocarusDataField), loaderCollection);

@@ -63,6 +63,11 @@ public class HandlersStorage {
         handlers.put(CleanValues.swtHydFiltCloggVac, new Handler(26, 1, 1, 0));
         handlers.put(CleanValues.swtHydFiltCloggPress, new Handler(25, 1, 1, 0));
         handlers.put(CleanValues.swtHydFiltCloggSuction, new Handler(24, 1, 1, 0));
+
+        handlers.put(CleanValues.tempMotSpeed,      new Handler(0, 10, 16, -8000));
+        handlers.put(CleanValues.permMotSpeed,      new Handler(10, 10, 16, -8000));
+        handlers.put(CleanValues.motoHours,         new Handler(0, 16, 1, 0));
+        handlers.put(CleanValues.motoMinutes,       new Handler(20, 4, 1, 1));
         //Ощибки ГСТ spn & fmi
         handlers.put(CleanValues.spn1p1,            new Handler(16, 8, 1, 0));
         handlers.put(CleanValues.spn1p2,            new Handler(24, 8, 1, 0));
