@@ -124,4 +124,9 @@ public class CleanValues {
     public static final String cruiseContOn = "CC-Swt";
     // Направление движения
     public static final String driveDirection = "DriveDir";
+
+    // Ошибка - Нет связи с двигателем
+    public static final String engCpuConLost = "EngDisconnected";
+    // Ошибка - Нет связи с контроллером ГСТ
+    public static final String hstCpuConLost = "HstDisconnected";
 }

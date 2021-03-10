@@ -108,6 +108,9 @@ public class HandlersStorage {
         handlers.put(CleanValues.cruiseContPlus,    new Handler(27, 1, 1, 0));
         handlers.put(CleanValues.cruiseContOn,      new Handler(28, 1, 1, 0));
         handlers.put(CleanValues.driveDirection,    new Handler(30, 2, 1, -1));
+
+        handlers.put(CleanValues.engCpuConLost,     new Handler(31, 1, 1, 0));
+        handlers.put(CleanValues.hstCpuConLost,     new Handler(30, 1, 1, 0));
     }
 
     public HashMap<String, Handler> getHandlers() {

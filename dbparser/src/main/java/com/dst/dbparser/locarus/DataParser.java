@@ -107,6 +107,7 @@ public class DataParser {
                 continue;
             }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P7.ordinal() + 1))){
+                // Резервные флаги не использованы
                 resParams.put(CleanValues.errQuan, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.errQuan)));
                 resFlags.put(CleanValues.swtGear1, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtGear1)));
                 resFlags.put(CleanValues.swtGear2, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtGear2)));
@@ -136,6 +137,8 @@ public class DataParser {
                 resParams.put(CleanValues.permMotSpeed, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.permMotSpeed)));
                 resParams.put(CleanValues.tempMotSpeed, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.tempMotSpeed)));
                 minutes = DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.motoMinutes));
+                resFlags.put(CleanValues.engCpuConLost, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.engCpuConLost)));
+                resFlags.put(CleanValues.hstCpuConLost, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.hstCpuConLost)));
                 continue;
             }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P9.ordinal() + 1))){
