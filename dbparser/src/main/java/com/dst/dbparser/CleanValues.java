@@ -29,9 +29,13 @@ public class CleanValues {
     public static final String velLimit = "VelocityLimit";
     public static final String inchPedal = "InchPedal";
 
+    // Угол наклона ковша, сдвиг -135 град
     public static final String bucketTilt = "BucketTiltAngle";
-    public static final String jibTilt = "JibTiltAngle";
+    // Высота положения стрелы, сдвиг -40 (0,1 м)
+    public static final String jibTilt = "JibHeight";
+    // Угол тангажа рамы, сдвиг -90
     public static final String chassisPitch = "ChassisPitchAngle";
+    // Угол крена рамы, сдвиг -90
     public static final String chassisTilt = "ChassisTiltAngle";
 
     public static final String driveMode = "DriveMode";

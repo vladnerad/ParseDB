@@ -33,10 +33,10 @@ public class HandlersStorage {
         handlers.put(CleanValues.velLimit,           new Handler(12, 12, 1, -1250));
         handlers.put(CleanValues.inchPedal,          new Handler(24, 7, 1, 0));
 
-        handlers.put(CleanValues.bucketTilt,        new Handler(0, 8, 1, 0));
-        handlers.put(CleanValues.jibTilt,           new Handler(8, 8, 1, 0));
-        handlers.put(CleanValues.chassisPitch,      new Handler(16, 8, 1, 0));
-        handlers.put(CleanValues.chassisTilt,       new Handler(24, 8, 1, 0));
+        handlers.put(CleanValues.bucketTilt,        new Handler(0, 8, 1, -135));
+        handlers.put(CleanValues.jibTilt,           new Handler(8, 8, 1, -40));
+        handlers.put(CleanValues.chassisPitch,      new Handler(16, 8, 1, -90));
+        handlers.put(CleanValues.chassisTilt,       new Handler(24, 8, 1, -90));
 
         handlers.put(CleanValues.velocityLimiter,   new Handler(29, 1, 1, 0));
         handlers.put(CleanValues.swtGear1,          new Handler(29, 1, 1, 0));
