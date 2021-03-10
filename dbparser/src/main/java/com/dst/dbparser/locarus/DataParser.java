@@ -88,6 +88,15 @@ public class DataParser {
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P5.ordinal() + 1))){
                 resParams.put(CleanValues.driveMode, new DriveModeHandler(anal_n.getValue()).getMode());
                 resFlags.put(CleanValues.velocityLimiter, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.velocityLimiter)));
+                resParams.put(CleanValues.torqueLimit, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.torqueLimit)));
+                resParams.put(CleanValues.velocLimitPct,(double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.velocLimitPct)));
+                resParams.put(CleanValues.virtualAccel, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.virtualAccel)));
+                resFlags.put(CleanValues.emerSteerRelay, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.emerSteerRelay)));
+                resFlags.put(CleanValues.steerRelay, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.steerRelay)));
+                resFlags.put(CleanValues.cruiseContMinus, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.cruiseContMinus)));
+                resFlags.put(CleanValues.cruiseContPlus, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.cruiseContPlus)));
+                resFlags.put(CleanValues.cruiseContOn, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.cruiseContOn)));
+                resParams.put(CleanValues.driveDirection, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.driveDirection)));
                 continue;
             }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P6.ordinal() + 1))){

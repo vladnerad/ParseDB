@@ -99,6 +99,15 @@ public class HandlersStorage {
         handlers.put(CleanValues.spn6p3,            new Handler(29, 3, 1, 0));
         handlers.put(CleanValues.fmi6,              new Handler(24, 5, 1, 0));
 
+        handlers.put(CleanValues.torqueLimit,       new Handler(0, 7, 1, 0));
+        handlers.put(CleanValues.velocLimitPct,     new Handler(8, 7, 1, 0));
+        handlers.put(CleanValues.virtualAccel,      new Handler(16, 7, 1, 0));
+        handlers.put(CleanValues.emerSteerRelay,    new Handler(24, 1, 1, 0));
+        handlers.put(CleanValues.steerRelay,        new Handler(25, 1, 1, 0));
+        handlers.put(CleanValues.cruiseContMinus,   new Handler(26, 1, 1, 0));
+        handlers.put(CleanValues.cruiseContPlus,    new Handler(27, 1, 1, 0));
+        handlers.put(CleanValues.cruiseContOn,      new Handler(28, 1, 1, 0));
+        handlers.put(CleanValues.driveDirection,    new Handler(30, 2, 1, -1));
     }
 
     public HashMap<String, Handler> getHandlers() {

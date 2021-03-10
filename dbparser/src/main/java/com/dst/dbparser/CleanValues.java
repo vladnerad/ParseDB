@@ -105,4 +105,23 @@ public class CleanValues {
     public static final String motoMinutes = "minutes";
     // после склейки
     public static final String workHours = "WorkHours";
+
+    // Ограничения крутящего момента (контроллер НО), 0..100 %
+    public static final String torqueLimit = "TorqueLimit";
+    // Ограничение скорости  (контроллер НО), 0..100 %
+    public static final String velocLimitPct = "VelLimitPct";
+    // Виртуальная ручка газа (контроллер НО), 0..100 %
+    public static final String virtualAccel = "VirtualAccel";
+    // Реле рул упр авар  0 - разомк; 1 - замк
+    public static final String emerSteerRelay = "EmSteerRel";
+    // Реле рул упр осн 0 - разомк; 1 - замк
+    public static final String steerRelay = "SteerRel";
+    // Круиз-контроль МИНУС
+    public static final String cruiseContMinus = "CC-Min";
+    // Круиз-контроль ПЛЮС
+    public static final String cruiseContPlus = "CC-Plus";
+    // Круиз-контроль ВКЛ
+    public static final String cruiseContOn = "CC-Swt";
+    // Направление движения
+    public static final String driveDirection = "DriveDir";
 }
