@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties({ "alt", "dir", "acceleration", "valid"})
 public class Coordinates {
-    @JsonProperty("lon")
-    private String lon;
     @JsonProperty("lat")
     private String lat;
+    @JsonProperty("lon")
+    private String lon;
     @JsonProperty("speed")
     private Double speed;
 }
