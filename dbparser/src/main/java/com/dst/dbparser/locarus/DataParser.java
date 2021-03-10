@@ -221,7 +221,6 @@ public class DataParser {
         resParams.put(CleanValues.workHours, hours + minutes / 10);
 
         result.setParams(resParams);
-        result.setFlags(resFlags);
         ArrayList<Double> hstErrors = new ArrayList<>();
         if (hstErrHand1.getErrCode() > 0) hstErrors.add(hstErrHand1.getErrCode());
         if (hstErrHand2.getErrCode() > 0) hstErrors.add(hstErrHand2.getErrCode());
@@ -231,6 +230,7 @@ public class DataParser {
         if (hstErrHand6.getErrCode() > 0) hstErrors.add(hstErrHand6.getErrCode());
         if (!hstErrors.isEmpty()) result.setHstErrors(hstErrors);
         result.setCoordinates(ldf.getCoords());
+        result.setFlags(resFlags);
         return result;
     }
 }
