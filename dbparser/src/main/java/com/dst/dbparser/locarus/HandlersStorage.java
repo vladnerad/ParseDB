@@ -121,6 +121,19 @@ public class HandlersStorage {
         handlers.put(CleanValues.btnSwim,           new Handler(23, 1, 1, 0));
         handlers.put(CleanValues.btnBack,           new Handler(30, 1, 1, 0));
         handlers.put(CleanValues.btnFront,          new Handler(31, 1, 1, 0));
+
+        handlers.put(CleanValues.sigStop,           new Handler(0, 1, 1, 0));
+        handlers.put(CleanValues.sigBeacon,         new Handler(1, 1, 1, 0));
+        handlers.put(CleanValues.sigEmerSteer,      new Handler(6, 1, 1, 0));
+        handlers.put(CleanValues.sigParking,        new Handler(7, 1, 1, 0));
+        handlers.put(CleanValues.sigRideCont,       new Handler(8, 1, 1, 0));
+        handlers.put(CleanValues.sigFuelHeat,       new Handler(9, 1, 1, 0));
+        handlers.put(CleanValues.sigAttBlock,       new Handler(10, 1, 1, 0));
+        handlers.put(CleanValues.sigRearWindHeat,   new Handler(11, 1, 1, 0));
+        handlers.put(CleanValues.sigStartEng,       new Handler(12, 1, 1, 0));
+        handlers.put(CleanValues.sigRevFan,         new Handler(13, 1, 1, 0));
+        handlers.put(CleanValues.sigRevBlink,       new Handler(14, 1, 1, 0));
+        handlers.put(CleanValues.sigRevSound,       new Handler(15, 1, 1, 0));
     }
 
     public HashMap<String, Handler> getHandlers() {

@@ -148,4 +148,29 @@ public class CleanValues {
     public static final String btnBack = "btnBack";
     // Кн Движение Вперед
     public static final String btnFront = "btnFront";
+
+    // СУ Стоп-сигналы
+    public static final String sigStop = "SigStop";
+    // СУ Светопроблесковый маяк
+    public static final String sigBeacon = "SigBeacon";
+    // СУ Аварийное рулевое управление
+    public static final String sigEmerSteer = "SigEmerSteer";
+    // СУ Стояночный тормоз, CCO
+    public static final String sigParking = "SigParking";
+    // СУ Ride Control
+    public static final String sigRideCont = "SigRideCont";
+    // СУ подогрев топлива
+    public static final String sigFuelHeat = "SigFuelHeat";
+    // СУ Блокировка РО
+    public static final String sigAttBlock = "SigAttBlock";
+    // СУ Обогрев заднего стекла
+    public static final String sigRearWindHeat = "SigRearWindHeat";
+    // СУ Запуск ДВС
+    public static final String sigStartEng = "SigStartEng";
+    // СУ Клапан Реверса Fan_Drive
+    public static final String sigRevFan = "SigRevFan";
+    // СУ Свет. сигнал з/х
+    public static final String sigRevBlink = "SigRevBlink";
+    // СУ Звук. Сигнал з/х
+    public static final String sigRevSound = "SigRevSound";
 }

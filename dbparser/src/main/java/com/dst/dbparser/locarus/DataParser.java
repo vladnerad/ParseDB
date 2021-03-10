@@ -168,6 +168,18 @@ public class DataParser {
                 resFlags.put(CleanValues.sigGear2, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigGear2)));
                 hstErrHand1.setSpn1(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn1p1)));
                 hstErrHand1.setSpn2(DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.spn1p2)));
+                resFlags.put(CleanValues.sigStop, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigStop)));
+                resFlags.put(CleanValues.sigBeacon, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigBeacon)));
+                resFlags.put(CleanValues.sigEmerSteer, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigEmerSteer)));
+                resFlags.put(CleanValues.sigParking, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigParking)));
+                resFlags.put(CleanValues.sigRideCont, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigRideCont)));
+                resFlags.put(CleanValues.sigFuelHeat, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigFuelHeat)));
+                resFlags.put(CleanValues.sigAttBlock, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigAttBlock)));
+                resFlags.put(CleanValues.sigRearWindHeat, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigRearWindHeat)));
+                resFlags.put(CleanValues.sigStartEng, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigStartEng)));
+                resFlags.put(CleanValues.sigRevFan, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigRevFan)));
+                resFlags.put(CleanValues.sigRevBlink, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigRevBlink)));
+                resFlags.put(CleanValues.sigRevSound, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.sigRevSound)));
                 continue;
             }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P12.ordinal() + 1))){
