@@ -111,6 +111,16 @@ public class HandlersStorage {
 
         handlers.put(CleanValues.engCpuConLost,     new Handler(31, 1, 1, 0));
         handlers.put(CleanValues.hstCpuConLost,     new Handler(30, 1, 1, 0));
+
+        handlers.put(CleanValues.btnBSU,            new Handler(17, 1, 1, 0));
+        handlers.put(CleanValues.btnRoad,           new Handler(18, 1, 1, 0));
+        handlers.put(CleanValues.btnA1_3,           new Handler(19, 1, 1, 0));
+        handlers.put(CleanValues.btnF1,             new Handler(20, 1, 1, 0));
+        handlers.put(CleanValues.btnFuelHeat,       new Handler(21, 1, 1, 0));
+        handlers.put(CleanValues.btnDumping,        new Handler(22, 1, 1, 0));
+        handlers.put(CleanValues.btnSwim,           new Handler(23, 1, 1, 0));
+        handlers.put(CleanValues.btnBack,           new Handler(30, 1, 1, 0));
+        handlers.put(CleanValues.btnFront,          new Handler(31, 1, 1, 0));
     }
 
     public HashMap<String, Handler> getHandlers() {

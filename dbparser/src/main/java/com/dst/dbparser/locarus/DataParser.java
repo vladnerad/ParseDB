@@ -106,8 +106,8 @@ public class DataParser {
                 resParams.put(CleanValues.pressFanDrive, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.pressFanDrive)));
                 continue;
             }
+            // Резервные флаги не парсятся
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P7.ordinal() + 1))){
-                // Резервные флаги не использованы
                 resParams.put(CleanValues.errQuan, (double)DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.errQuan)));
                 resFlags.put(CleanValues.swtGear1, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtGear1)));
                 resFlags.put(CleanValues.swtGear2, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtGear2)));
@@ -131,6 +131,7 @@ public class DataParser {
                 resFlags.put(CleanValues.swtHydFiltCloggSuction, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.swtHydFiltCloggSuction)));
                 continue;
             }
+            // Резервные критические ошибки не парсятся
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P8.ordinal() + 1))){
 //                resParams.put(CleanValues.permMotSpeed, new MotorSpeedHandler(false, anal_n.getValue()).getSpeed());
 //                resParams.put(CleanValues.tempMotSpeed, new MotorSpeedHandler(true, anal_n.getValue()).getSpeed());
@@ -141,8 +142,18 @@ public class DataParser {
                 resFlags.put(CleanValues.hstCpuConLost, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.hstCpuConLost)));
                 continue;
             }
+            // Резервные кнопки не парсятся
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P9.ordinal() + 1))){
                 hours = DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.motoHours));
+                resFlags.put(CleanValues.btnBSU, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.btnBSU)));
+                resFlags.put(CleanValues.btnRoad, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.btnRoad)));
+                resFlags.put(CleanValues.btnA1_3, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.btnA1_3)));
+                resFlags.put(CleanValues.btnF1, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.btnF1)));
+                resFlags.put(CleanValues.btnFuelHeat, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.btnFuelHeat)));
+                resFlags.put(CleanValues.btnDumping, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.btnDumping)));
+                resFlags.put(CleanValues.btnSwim, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.btnSwim)));
+                resFlags.put(CleanValues.btnBack, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.btnBack)));
+                resFlags.put(CleanValues.btnFront, 1 == DataParser.getNumberFromByte((int)(double)(anal_n.getValue()), handlers.get(CleanValues.btnFront)));
                 continue;
             }
             if (anal_n.getKey().equals(String.valueOf(LocarusChannels.P10.ordinal() + 1))){

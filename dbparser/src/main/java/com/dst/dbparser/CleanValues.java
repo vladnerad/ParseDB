@@ -129,4 +129,23 @@ public class CleanValues {
     public static final String engCpuConLost = "EngDisconnected";
     // Ошибка - Нет связи с контроллером ГСТ
     public static final String hstCpuConLost = "HstDisconnected";
+
+    // Кн БСУ
+    public static final String btnBSU = "btnBSU";
+    // Кн Движение по дорогам
+    public static final String btnRoad = "btnRoad";
+    // Кн Диапазон скорости A1-3
+    public static final String btnA1_3 = "btnA1_3";
+    // Кн Диапазон скорости F1
+    public static final String btnF1 = "btnF1";
+    // Кн Подогрев топлива
+    public static final String btnFuelHeat = "btnFuelHeat";
+    // Кн Демпфирование ходовых колебаний
+    public static final String btnDumping = "btnDumping";
+    // Кн Плавающее положение
+    public static final String btnSwim = "btnSwim";
+    // Кн Движение Назад
+    public static final String btnBack = "btnBack";
+    // Кн Движение Вперед
+    public static final String btnFront = "btnFront";
 }
